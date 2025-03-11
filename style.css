@@ -12,18 +12,4 @@ nav{
     padding-left: 20px;
     padding-top: 20px;
 }
-.navigacija{
-    height: 40px;
-    margin-right: 20px;
-    text-align: center;
-    font-size: 20px;
-    float: right;
-    background-color: #00b3aa;
-    border-radius: 5px;
-    border-color: #0096b8;
-}
-
-.navigacija:hover{
-    background-color: #f69f2c;
-}
 
