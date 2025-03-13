@@ -1,0 +1,17 @@
+table{
+    border: 0.1rem solid rgb(41, 0, 26);
+    color: rgb(0, 0, 0);
+
+}
+
+th{
+    border: 0.1rem solid rgb(187, 0, 255);
+    color: rgb(56, 0, 44);
+}
+tr{
+    height: 1.3rem;
+}
+td{
+    border: 0.1rem solid rgb(191, 7, 96);
+    color: rgb(56, 0, 44);
+}

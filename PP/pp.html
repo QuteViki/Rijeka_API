@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pp.css">
+    <title>Projektni praktikum</title>
+</head>
+<body>
+    <h1>Zadatak: tablica</h1>
+    <table>
+    <thead> <!--zaglavlje tablice tzv header i njegove ćelije -->
+        <th>Endpoint</th>
+        <th>Metoda</th>
+        <th colspan="2">Opis</th>
+    </thead>
+
+    <tbody> <!--glavni dio - tijelo tablice-->
+        <tr> 
+            <!-- 1. red /users zauzima 4 retka (GET x2, POST, DELETE) -->
+            <!--    GET i njegov opis zauzimaju 2 retka (rowspan="2") -->
+            <td rowspan="4">/users</td> <!-- 2x Ge-->
+            <td rowspan="2">GET</td>
+            <td rowspan="2">Dohvaća listu svih korisnika</td>
+        </tr>
+        <!-- 2. red prazan, jer GET i opis GET-a koriste rowspan="2" ali zbog toga šta ovaj red ne sadrži nikakve podatke morala sam u cssu ubaciti visinu od 20px da bi de prikazalo kao u zadatku -->
+        <tr></tr>
+
+        <tr>
+            <td>POST</td>
+            <td>Kreira novog korisnika</td>
+        </tr>
+        <tr>
+            <td>DELETE</td>
+            <td>Briše određenog korisnika</td>
+        </tr>
+        <tr>
+            <td>/products</td>
+            <td>GET</td>
+            <td>Dohvaća listu proizvoda</td>
+        </tr>
+        <tr>
+            <td>/orders</td>
+            <td colspan="2">
+                <ul>
+                    <li>Pregled svih narudžbi</li>
+                    <li>Dodaj novu narudžbu</li>
+                    <li>Ažuriraj postojeću narudžbu</li>
+                </ul>
+                </td>
+            </tr>
+    </tbody>
+    </table>
+    <h1>Zadatak: registracijska forma </h1>
+    <form>
+        <label for="ime">Ime:</label><br>
+        <input type="text" id="ime" name="ime" required ><br><br>
+
+        <label for="prezime">Prezime:</label><br>
+        <input type="text" id="prezime" name="prezime" required><br><br>
+
+        <label for="mail">Email:</label><br>
+        <input type="email" id="mail" name="mail" required><br><br>
+
+        <label for="pass">Lozinka:</label><br>
+        <input type="password" id="pass" name="pass" required><br><br>
+
+        <label for="pass">Potvrdi lozinku:</label><br>
+        <input type="password" id="pass" name="pass" required><br><br>
+        <input type="submit" value="Registriraj se">
+    </form>
+
+    <br><p>ovo je sada običan gumb</p>
+    <button>Registriraj se</button>
+</body>
+</html>

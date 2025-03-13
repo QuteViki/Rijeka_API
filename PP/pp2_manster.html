@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table, th{
+        border: 0.1rem solid rgb(156, 47, 92);
+        color: rgb(56, 0, 44);
+    }
+
+    td{
+        border: 0.1rem solid rgb(156, 47, 92);
+        color: rgb(56, 0, 44);
+    }
+
+    tr{
+        height: 20px;
+    }
+
+</style>
+<body>
+    <table>
+        <thead>
+            <th>Endpoint</th>
+            <th>Metoda</th>
+            <th colspan="2">Opis</th>
+        </thead>
+
+        <tbody>
+            <tr> 
+                <td rowspan="4">/users</td> 
+                <td rowspan="2">GET</td>
+                <td rowspan="2">Dohvaća listu svih korisnika</td>
+            </tr>
+            <tr>
+            </tr>
+            <tr>
+                <td>POST</td>
+                <td>Kreira novog korisnika</td>
+            </tr>
+            <tr>
+                <td>DELETE</td>
+                <td>Briše određenog korisnika</td>
+            </tr>
+            <tr>
+                <td>/products</td>
+                <td>GET</td>
+                <td>Dohvaća listu proizvoda</td>
+            </tr>
+            <tr>
+                <td>/orders</td>
+                <td colspan="2">
+                    <ul>
+                        <li>Pregled svih narudžbi</li>
+                        <li>Dodaj novu narudžbu</li>
+                        <li>Ažuriraj postojeću narudžbu</li>
+                    </ul>
+                    </td>
+                </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
