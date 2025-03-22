@@ -1,3 +1,8 @@
+body {
+    background-color: hsla(0, 100%, 89%, 0.6);
+
+ }
+
 table{
     border: 0.1rem solid rgb(41, 0, 26);
     color: rgb(0, 0, 0);
@@ -11,7 +16,30 @@ th{
 tr{
     height: 1.3rem;
 }
+tbody tr:nth-child(1){
+    background-color: hsla(125, 72%, 79%, 0.813); /* Light Red */
+}
+tbody tr:nth-child(2n) {
+    background-color: hsla(125, 72%, 79%, 0.813); /* Light Red */
+}
+
+
 td{
     border: 0.1rem solid rgb(191, 7, 96);
     color: rgb(56, 0, 44);
 }
+button{
+    background-color: aqua;
+}
+
+label:hover{
+    color: blueviolet;
+}
+
+input:focus{
+    background-color:rgb(148, 196, 225);
+}
+
+input:disabled {
+    background-color: rgb(104, 104, 104);
+    }
