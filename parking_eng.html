@@ -1,53 +1,53 @@
 <!DOCTYPE html>
-<html lang="hr"> <!--za hrvatsko tržište-->
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css" >
+<html lang="hr">
+  <!--za hrvatsko tržište-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <title>Rijeka</title>
-</head>
+  </head>
 
-<header><img src="logo.png" alt="logo ikona" class="logo"></header>
-<nav>
+  <header><img src="logo.png" alt="logo ikona" class="logo" /></header>
+  <nav>
     <ul>
-        <li><a href="index_eng.html">Frontpage</a></li>
-        <li><a href="transport.html">Transport</a></li>
-        <li><a href="parking_eng.html">Parking</a></li>
-        <li><a href="health.html">Health</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="attractions.html">Atractions</a></li>
-        <li><a href="accommodation.html">Accomodation</a></li>
-        <li><a href="weather.html">Weather</a></li>
-        <li><a href="parking.html">HR</a></li>
+      <a href="index_eng.html">Frontpage</a>
+      <a href="transport.html">Transport</a>
+      <a href="parking_eng.html">Parking</a>
+      <a href="health.html">Health</a>
+      <a href="shop.html">Shop</a>
+      <a href="attractions.html">Atractions</a>
+      <a href="accommodation.html">Accomodation</a>
+      <a href="weather.html">Weather</a>
+      <a href="parking.html">HR</a>
     </ul>
-</nav>
-<body>
+  </nav>
+  <body>
     <h1>Available parking - Rijeka Plus</h1>
     <button id="gumb" class="gumb">Click me!</button>
     <div id="parking"></div>
 
     <script>
-        document.getElementById('gumb').addEventListener('click', async () => {
-    try {
-        const response = await fetch('http://localhost:3000/dostupnost');
-        if (!response.ok) {
-            throw new Error('Error while getting data ');
-        }
-        const data = await response.json();
+      document.getElementById("gumb").addEventListener("click", async () => {
+        try {
+          const response = await fetch("http://localhost:3000/dostupnost");
+          if (!response.ok) {
+            throw new Error("Error while getting data ");
+          }
+          const data = await response.json();
 
-        // pretvoreno u glavni okvir koji će obuhvatiti sve rezultate koje ćemo napuniti
-        //i dalje punimo podatke ovdje
-        let parkingHTML = `<div style="border:2px solid black; padding:10px; margin:5px;">`; 
+          // pretvoreno u glavni okvir koji će obuhvatiti sve rezultate koje ćemo napuniti
+          //i dalje punimo podatke ovdje
+          let parkingHTML = `<div style="border:2px solid black; padding:10px; margin:5px;">`;
 
+          for (let i = 0; i < data.length; i++) {
+            let parking = data[i];
 
-for (let i = 0; i < data.length; i++) {
-    let parking = data[i];
+            if (!parking.parking_name || !parking.parking_data?.kapacitet) {
+              continue; //preskače podatke koji nemaju upisan naziv ili kapacitet
+            }
 
-    if (!parking.parking_name || !parking.parking_data?.kapacitet) {
-        continue; //preskače podatke koji nemaju upisan naziv ili kapacitet
-    }
-
-    parkingHTML += `
+            parkingHTML += `
         <div> 
             <h2>Parking: ${parking.parking_name}</h2>
             <h3>Capacity: ${parking.parking_data.kapacitet}</h3>
@@ -58,26 +58,29 @@ for (let i = 0; i < data.length; i++) {
             </p>
         </div>
     `;
-}
+          }
 
-        parkingHTML += `</div>`; // Zatvaranje glavnog okvira // Prazan string koji ćemo popunjavati
+          parkingHTML += `</div>`; // Zatvaranje glavnog okvira // Prazan string koji ćemo popunjavati
 
-        if (parkingHTML === "") { // ako su svi podaci unutar sustava null onda prikaži..
-        parkingHTML = "<p>No available parking lots with valid data.</p>";
+          if (parkingHTML === "") {
+            // ako su svi podaci unutar sustava null onda prikaži..
+            parkingHTML = "<p>No available parking lots with valid data.</p>";
+          }
+
+          document.getElementById("parking").innerHTML = parkingHTML;
+        } catch (error) {
+          document.getElementById("parking").innerText =
+            "Error: " + error.message;
         }
-
-        document.getElementById("parking").innerHTML = parkingHTML;
-
-    } catch (error) {
-        document.getElementById('parking').innerText = 'Error: ' + error.message;
-    }
-});
-
+      });
     </script>
-<footer>
-    <p>&copy; Projektni praktikum 2025 &copy; <br> Eda Calderini Živanović & Gabriela Svalina </p> 
-</footer>
+    <footer>
+      <p>
+        &copy; Projektni praktikum 2025 &copy; <br />
+        Eda Calderini Živanović & Gabriela Svalina
+      </p>
+    </footer>
 
-<script src="api.js"></script>
-</body>
+    <script src="api.js"></script>
+  </body>
 </html>
