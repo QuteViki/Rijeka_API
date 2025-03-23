@@ -3,7 +3,6 @@ Website for tourists about Rijeka - all in one place.
 The site is using open data via api so you could have all necessary info in one place instead roaming for info.
 
 Tag: <html lang="hr">
-
 For the Croatian market.
 Tag: <nav>
 

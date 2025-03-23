@@ -21,11 +21,27 @@
     <a href="index_eng.html">Frontpage</a>
   </nav>
   <body>
-    <h1>Welcome to the page of City Rijeka</h1>
-    <aside></aside>
-    <!--nadopuna sadržaja if you want to know more-->
-    <article></article>
-    <!--glavna stvar stranice po tome google stječe značaj-->
+    <h1>Weather for Rijeka</h1>
+    <div id="prognoza"></div>
+
+    <script>
+        async function getWeather() {
+            try {
+                const odgovor = await fetch("http://localhost:3000/vrijeme?grad=Rijeka");
+                if (!odgovor.ok) throw new Error("City not found.");
+                
+                const podaci = await odgovor.json();
+                document.getElementById("prognoza").innerHTML = `
+                    <h2>City: ${podaci.grad}</h2>
+                    <p>Temperature: ${podaci.temperatura}°C</p>
+                    <p>Condition: ${podaci.uvjeti}</p>
+                `;
+            } catch (error) {
+                document.getElementById("prognoza").innerHTML = `<p style="color: red;">${error.message}</p>`;
+            }
+        }
+        document.addEventListener("DOMContentLoaded", getWeather);
+    </script>
     <footer>
       <p>
         &copy; Projektni praktikum 2025 &copy; <br />
@@ -33,6 +49,6 @@
       </p>
     </footer>
 
-    <script src="api.js"></script>
+    <script src="weather.js"></script>
   </body>
 </html>
