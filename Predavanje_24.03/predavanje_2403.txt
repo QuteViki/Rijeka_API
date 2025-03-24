@@ -1,0 +1,13 @@
+DOM- targetiranje js 
+javascript koji radi u segmentu manipulacije stranicom
+ayax - metoda za asinkronu komunikaciju. nije nejzgodnije na webu da to postoji
+ne radimo api koji ce sve ažuriratii  i gdje se pokreću svi protokoli
+dodati zoom za osobe sa posebnim potrebama, disleksičan font i ostale gumbiće
+
+gumb show/hide table 
+gumb add table
+gumb add row
+
+pac man step by step?
+
+probati napraviti štopericu delay=1000
