@@ -1,0 +1,57 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: hsl(304, 59%, 72%);
+}
+.nesto
+#mojH1 {
+  font-size: 4rem;
+  font-family: "Courier New", Courier, monospace;
+  color: hsl(0, 100%, 14%);
+}
+#sadrzaj {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  border: 5px solid;
+  border-radius: 40px;
+  background-color: hsl(330, 70%, 59%);
+}
+#ekran {
+  font-size: 5rem;
+  font-family: monospace;
+  font-weight: bold;
+  color: hsl(0, 100%, 14%);
+  text-shadow: 2px 2px 2px hsla(0, 0%, 0%, 0.75);
+}
+#kontrole button {
+  font-size: 1.5 rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 5px;
+  min-width: 125px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+}
+#kreni {
+  background-color: hsl(280, 100%, 31%);
+}
+#kreni:hover {
+  background-color: hsl(280, 100%, 41%);
+}
+#stani {
+  background-color: hsl(0, 100%, 31%);
+}
+#stani:hover {
+  background-color: hsl(0, 100%, 41%);
+}
+#reset {
+  background-color: hsl(324, 100%, 31%);
+}
+#reset:hover {
+  background-color: hsl(324, 100%, 41%);
+}
