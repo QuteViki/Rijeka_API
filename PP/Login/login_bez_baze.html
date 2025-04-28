@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <title>Prijava</title>
+</head>
+<body>
+
+<h2>Prijava</h2>
+
+<form id="loginForm">
+  <label for="username">Korisničko ime:</label><br>
+  <input type="text" id="username" name="username"><br><br>
+
+  <label for="password">Lozinka:</label><br>
+  <input type="password" id="password" name="password"><br><br>
+
+  <input type="submit" value="Prijavi se">
+</form>
+
+<p id="message"></p>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("loginForm");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); // Spriječi reload stranice
+
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      if (username === "Eda" && password === "1234") {
+        document.getElementById("message").textContent = "Uspješno ste prijavljeni!";
+        document.getElementById("message").style.color = "green";
+      } else {
+        document.getElementById("message").textContent = "Pogrešni korisnički podaci.";
+        document.getElementById("message").style.color = "red";
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
