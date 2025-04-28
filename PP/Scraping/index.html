@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scraping</title>
+</head>
+<body>
+  <h1>Najnovija vijest sa stranice grada Rijeke:</h1>
+  <p id="naslov">Učitavam naslov stranice...</p>
+  <p id="vijest">Učitavam vijest...</p>
+
+  <script>
+    async function fetchData() {
+      try {
+        const response = await fetch("/scrape");
+        const data = await response.json();
+
+        document.getElementById("naslov").textContent = "Naslov: " + data.naslov;
+
+        const vijestEl = document.getElementById("vijest");
+        vijestEl.innerHTML = `<a href="${data.vijest.link}" target="_blank">${data.vijest.tekst}</a>`;
+      } catch (error) {
+        console.error("Greška pri dohvaćanju podataka:", error);
+      }
+    }
+
+    fetchData();
+  </script>
+</body>
+</html>

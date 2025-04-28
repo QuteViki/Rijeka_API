@@ -10,6 +10,7 @@
 
   <header><img src="logo.png" alt="logo ikona" class="logo" /></header>
   <nav>
+    <a href="index_eng.html">Frontpage</a>
     <a href="transport.html">Transport</a>
     <a href="parking_eng.html">Parking</a>
     <a href="health.html">Health</a>
@@ -18,29 +19,32 @@
     <a href="accommodation.html">Accomodation</a>
     <a href="weather.html">Weather</a>
     <a href="prognoza.html">HR</a>
-    <a href="index_eng.html">Frontpage</a>
   </nav>
   <body>
     <h1>Weather for Rijeka</h1>
     <div id="prognoza"></div>
 
     <script>
-        async function getWeather() {
-            try {
-                const odgovor = await fetch("http://localhost:3000/vrijeme?grad=Rijeka");
-                if (!odgovor.ok) throw new Error("City not found.");
-                
-                const podaci = await odgovor.json();
-                document.getElementById("prognoza").innerHTML = `
+      async function getWeather() {
+        try {
+          const odgovor = await fetch(
+            "http://localhost:3000/vrijeme?grad=Rijeka"
+          );
+          if (!odgovor.ok) throw new Error("City not found.");
+
+          const podaci = await odgovor.json();
+          document.getElementById("prognoza").innerHTML = `
                     <h2>City: ${podaci.grad}</h2>
                     <p>Temperature: ${podaci.temperatura}°C</p>
                     <p>Condition: ${podaci.uvjeti}</p>
                 `;
-            } catch (error) {
-                document.getElementById("prognoza").innerHTML = `<p style="color: red;">${error.message}</p>`;
-            }
+        } catch (error) {
+          document.getElementById(
+            "prognoza"
+          ).innerHTML = `<p style="color: red;">${error.message}</p>`;
         }
-        document.addEventListener("DOMContentLoaded", getWeather);
+      }
+      document.addEventListener("DOMContentLoaded", getWeather);
     </script>
     <footer>
       <p>
