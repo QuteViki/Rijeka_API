@@ -8,7 +8,7 @@
 
 <h2>Prijava</h2>
 
-<form id="loginForm">
+<form id="loginForm">  
   <label for="username">Korisničko ime:</label><br>
   <input type="text" id="username" name="username"><br><br>
 
@@ -21,11 +21,11 @@
 <p id="message"></p>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("DOMContentLoaded", function() { 
     const form = document.getElementById("loginForm");
 
     form.addEventListener("submit", function(event) {
-      event.preventDefault(); // Spriječi reload stranice
+      event.preventDefault(); // Spriječi reload stranice koji se inače automatski dogodi kada se klikne submit
 
       const username = document.getElementById("username").value;
       const password = document.getElementById("password").value;
